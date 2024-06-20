@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const targetDate = new Date('2024/06/19');
+    const targetDate = new Date('2024/06/17');
     const today = new Date();
     let daysDifference = Math.ceil((today - targetDate) / (1000 * 60 * 60 * 24))-1;
     
