@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const targetDate = new Date('2024/06/17');
+
     const today = new Date();
-    let daysDifference = Math.ceil((today - targetDate) / (1000 * 60 * 60 * 24))-1;
+    today.setHours(today.getHours() - 3); // Subtrai 3 horas para ajustar para Brasília (UTC-3)
+
+    let daysDifference = Math.ceil((today - targetDate) / (1000 * 60 * 60 * 24));
     
     let displayText;
     if (daysDifference === 0) {
