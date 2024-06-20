@@ -16,19 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const formattedDate = `${targetDate.getDate()}/${targetDate.getMonth() + 1}/${targetDate.getFullYear()}`; // Formata a data
     dateInfoElement.innerHTML = `(desde ${formattedDate})`;
 
-    // Exemplo de como adicionar o texto sobre os streaks
-    // const eraStreak = "Era: 30 dias (01/07/2023 até 30/07/2023)";
-    // const recordStreak = "Recorde: 45 dias (01/08/2023 até 15/08/2023)";
-
-    // const fullText = `<br><br>${eraStreak}<br>${recordStreak}`;
-    // dateInfoElement.insertAdjacentHTML('afterend', fullText); // Adiciona o texto após o elemento dateInfo
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    fetchStreakData();
-});
-
-function fetchStreakData() {
     fetch('https://raw.githubusercontent.com/Alexandre-Caldeira/dias-sem/main/streaks.json') // Atualize o caminho conforme necessário
       .then(response => response.json())
       .then(data => {
@@ -38,12 +25,13 @@ function fetchStreakData() {
 
             updateStreakDisplay(lastStreak, longestStreak);
         });
-}
+
+});
 
 function updateStreakDisplay(lastStreak, longestStreak) {
     const detailsDiv = document.getElementById('streakDetails');
-    detailsDiv.innerHTML = `
-        Era: ${lastStreak.days} dias (${lastStreak.startDate} até ${lastStreak.endDate})
-        Recorde: ${longestStreak.days} dias (${longestStreak.startDate} até ${longestStreak.endDate})
+    detailsDiv.innerHTML = `<br><br>
+        > Era: ${lastStreak.days} dias (${lastStreak.startDate} - ${lastStreak.endDate})<br>
+        > Recorde: ${longestStreak.days} dias (${longestStreak.startDate} - ${longestStreak.endDate})
     `;
 }
