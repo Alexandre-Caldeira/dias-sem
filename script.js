@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const targetDate = new Date('2024/06/17');
     const today = new Date();
-    let daysDifference = Math.ceil((today - targetDate) / (1000 * 60 * 60 * 24));
+    let daysDifference = Math.ceil((today - targetDate) / (1000 * 60 * 60 * 24))-1;
     
     let displayText;
     if (daysDifference === 0) {
-        displayText = `💀${daysDifference}📉`;
+        displayText = `💀 ${daysDifference} 📉`;
     } else {
-        displayText = `🌈${daysDifference.toString().padStart(10, ' ')}🫧`;
+        displayText = `🌈 ${daysDifference.toString().padStart(10, ' ')} 📈`;
     }
     
     document.getElementById('days').innerText = displayText;
