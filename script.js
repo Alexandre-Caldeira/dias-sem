@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const targetDate = new Date('2024/06/17');
+    const targetDate = new Date('2024/06/21');
 
     const today = new Date();
     today.setHours(today.getHours() - 3); // Subtrai 3 horas para ajustar para Brasília (UTC-3)
