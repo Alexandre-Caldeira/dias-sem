@@ -4,12 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const today = new Date();
     today.setHours(today.getHours() - 3); // Subtrai 3 horas para ajustar para Brasília (UTC-3)
 
-    let daysDifference = Math.ceil((today - targetDate) / (1000 * 60 * 60 * 24))-1;
+    let daysDifference = Math.ceil((today - targetDate) / (1000 * 60 * 60 * 24));
     
     let displayText;
     if (daysDifference === 0) {
         displayText = `💀 ${daysDifference} 📉`;
     } else {
+        daysDifference = daysDifference-1;
         displayText = `🌈 ${daysDifference.toString().padStart(10, ' ')} 📈`;
     }
     
